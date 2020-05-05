@@ -10,5 +10,5 @@ a ===b // false ( checks the value and data type)
 c = '20'+1;  // ans:'201'
 c = (c * 1) + 1; // 202 (becomes integer)
 
-typeof c; // returns the data type of the variable.
+typeof c; // data type of variable.
 
