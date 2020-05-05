@@ -1,0 +1,21 @@
+<script>
+
+function Book(BNAME,BPUB,BTYPE,BPRICE){
+       this.name = BNAME;
+	   this.publication = BPUB;
+	   this.type = BTYPE;
+	   this.price = BPRICE;
+	   this.introduction = function(){
+	   console.log('The '+this.name+' Was Published by '+this.publication+'. Basically this is a '+this.type+'. This book is selling at a price of '+this.price+' TK.');
+	   }
+
+}
+
+Book1 = new Book('Amar Ache Jol','Onno Porkash','Novel',120);
+Book2 = new Book('Biggani Sofodor Alir MohaMoha Abishkar','Gyankosh Prokashony','Science Fiction',200);
+Book1.introduction();
+Book2.introduction();
+
+
+
+</script>

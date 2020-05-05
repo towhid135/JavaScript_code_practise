@@ -1,0 +1,34 @@
+<html> 
+<head> </head>
+<style>
+
+li:nth-child(odd){ color:green;}
+li:nth-child(even){ color:blue;}
+
+
+</style>
+
+<body>
+
+<p> <b>Press the button to see the Rank</b> </p> </br>
+<input type = "button" value = "Rank" onclick="rank()"> </br>
+
+<ul id = "ul1" class = "class1">
+
+</ul>
+
+
+</body>
+<script>
+var allRank = ['Bob <b>first</b>','Mark <b>Second</b>','Mac <b>Third</b>','Alice <b>Fourth</b>','Towhid <b>Fifth</b>'];
+var index=0;
+function rank(){
+var list = document.createElement('li');
+list.className = 'li-class' //giving class name to the created list tag
+ if(index<allRank.length) {list.innerHTML = allRank[index++],document.getElementById("ul1").appendChild(list);}
+ else if(index == 5) {list.innerHTML = 'Finished',document.getElementById("ul1").appendChild(list),index++;}
+}
+
+</script>
+
+</html>

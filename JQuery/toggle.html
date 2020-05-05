@@ -1,0 +1,20 @@
+<html>
+<head>
+</head>
+<body>
+<p id="para">Where is the spinner?
+  <img id="spinner" src="spinner2.gif" height="25" 
+      style="vertical-align: middle; display:none;">
+</p>
+<a href="#" onclick="$('#spinner').toggle();  <!-- the image is by default hidden because display:none. so toggle will reverse it and show the image. -->
+    return false;">Toggle</a>
+
+<a href="#" onclick="$('#para').css('background-color', 'red'); <!-- background-color is the variable and red is the value. -->
+    return false;">Red</a>
+
+<a href="#" onclick="$('#para').css('background-color', 'green');
+    return false;">Green</a>
+<script type="text/javascript" src="jquery.min.js">
+</script>
+</body>
+</html>
