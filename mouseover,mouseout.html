@@ -11,14 +11,13 @@ document.getElementById("demo").addEventListener("mouseover", mouseOver);
 document.getElementById("demo").addEventListener("mouseout", mouseOut);
 
 function mouseOver() {
-  document.getElementById("demo").style.color = "red";
+  document.getElementById("demo").innerHTML = "your mouse is on over it",document.getElementById("demo").style.color = "red";
 }
 
 function mouseOut() {
-  document.getElementById("demo").style.color = "black";
+ document.getElementById("demo").innerHTML = "your mouse is not on over it",document.getElementById("demo").style.color = "green";
 }
 </script>
 
 </body>
 </html>
-
