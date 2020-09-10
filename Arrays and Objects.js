@@ -24,9 +24,9 @@ Obj = {
 
 emptyObj = {} //
 
-emptyobj.Id = 17101135; //assigning values to empty array, property can be defined according to users wish
+emptyobj.Id = 17101135; //assigning values to empty object, property can be defined according to users wish
 
-emptyObj2 = Object(); // another way to create empty array.
+emptyObj2 = Object(); // another way to create empty object.
 
 obj.Name;
 obj['Name'];
