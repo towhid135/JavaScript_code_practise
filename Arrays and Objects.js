@@ -9,8 +9,12 @@ var num.push(5); //add number to the tail
 var.pop(); //pop a number from the tail
 var.unshift(100); // add number to the head
 var.shift();  //pop number from the head
-
 var.push([1,2,3]);
+//new way to copy element of array
+var arrayOld = [1,2,3,4];
+var val = 8;
+// all the elements of arrayOld will be copied to the arrayNew and an extra element val will be added
+var arrayNew = [...arrayOld,val];
 
 //{Object}
 
