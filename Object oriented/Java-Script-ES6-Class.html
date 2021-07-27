@@ -1,0 +1,252 @@
+<script>
+//********************************************JAVASCRIPT ES6 CLASS********************************************************
+
+
+
+
+
+//********************************************Javascript ES6 Class********************************************************
+ class Calculator{
+
+ 	constructor(number1, number2){
+ 		this.number1 = number1;
+ 		this.number2 = number2;
+      console.log("The constructor is called at the time of object creation.");
+
+ 	}
+
+   add = () => console.log('The result of sum =',this.number1+this.number2);
+
+ };
+
+
+ var object_1 = new Calculator(10,20);
+
+ object_1.add();
+
+
+
+ //**********************************************Setter method inside of ES6 class**************************************
+
+ class Student{
+   constructor(fname,lname,roll){
+      //console.log('Constructor is called immediately of the object creation')
+      this.fname = fname;
+      this.lname = lname;
+      this.roll = roll;
+   }
+  
+   set info(studentInfo){
+      console.log('Inside of setter function.');
+      this.roll = studentInfo.roll;
+      this.fname = studentInfo.firstname;
+      this.lname = studentInfo.lastname;
+
+
+   }
+   showRoll = () => console.log('After calling setter method, fname,lname and roll respectively ',this.fname,this.lname ,this.roll);
+ }
+
+var st_obj = new Student('Towhidul','Islam',135);
+console.log(st_obj);
+
+//setter method takes only one property, so for more than one property we need to pass an object.
+st_obj.info = {firstname:'Rajibul',lastname:"Haque",roll:152};
+console.log(st_obj);
+
+st_obj.showRoll();
+
+
+
+//*******************************************************Getter Method***************************************************
+class Student2{
+
+   constructor(fname,lname,roll){
+      this.fname = fname;
+      this.lname = lname;
+      this.roll = roll;
+   }
+
+   get studentInfo(){
+
+      return this.fname+'-'+this.lname;
+
+   }
+}
+
+var std_obj2 = new Student2("Towhidul","Islam",135);
+console.log(std_obj2);
+
+console.log('Get method returns' ,std_obj2.studentInfo );
+
+
+//*********************************************************Inheritance***************************************************
+
+//Inheritance syntax: class child_class_name extends parent_class_name
+
+//----Single class inheritance without calling 'super' method
+
+
+ /*If there is no constructor inside of child then we can pass the arguments of the parent class
+ via child class during object creation. And we can directly call and access parents class property
+ and methods from the inside of the child class*/
+
+ class Area{
+   constructor(givenArea){
+      this.area = givenArea;
+      console.log('Parent class is called')
+
+   }
+   doPrint = () => console.log('Given area is',this.area);
+ }
+
+ class Circle extends Area{
+   CalculateArea = () => console.log('Circle area is:',3.1416*(this.area*this.area) );
+
+ }
+
+ var circleObj = new Circle(5);
+ 
+ circleObj.CalculateArea();
+ circleObj.doPrint();
+
+ //----Single class inheritance with calling 'super' method.
+
+
+ /* We can call methods of parent class directly from the child class by using this.methodname. If we want to call
+ a parent method directly by using child object then we can write 'childObjectName.parentMethodName' */
+
+ class District {
+
+   constructor(totalPeople,totalSubDis,totalSchool){
+      this.totalPeople = totalPeople;
+      this.totalSubDis = totalSubDis;
+      this.totalSchool = totalSchool;
+   }
+
+   disInfo(){
+      console.log('In our district we have total people =',this.totalPeople,', total subdistrict = ',this.totalSubDis,' and total schools = ',this.totalSchool);
+   }
+
+ }
+
+ class subDistrict extends District{
+
+   constructor(totalPeople1,totalSubDis1,totalSchool1,subDisPeople,totalpoliceStation){
+      //super method
+      super(totalPeople1,totalSubDis1,totalSchool1);
+
+      //this.totalPeople = totalPeople;
+      //this.totalSubDis = totalSubDis;
+     // this.totalSchool = totalSchool;
+      this.subDisPeople = subDisPeople;
+      this.totalpoliceStation = totalpoliceStation;
+
+      
+   }
+
+   subAndDisInfo(){
+      //parent mathod calling using super method
+      console.log(this.disInfo());
+
+      console.log('In our sub-district we have total people =',this.subDisPeople,', total police station = ',this.totalpoliceStation);
+   }
+
+   }
+
+   var subDisObj = new subDistrict(50000,10,20,1000,5);
+
+   subDisObj.subAndDisInfo();
+   //subDisObj.disInfo();
+
+  
+
+  //************************************************Multi-level Inheritance**********************************************
+  
+  /* In multi-level inheritance class B can inherit class A, and class C can inherit class B. The process can be continued in this way.*/
+  class Root { 
+   test() { 
+      console.log("call from parent class");
+   } 
+} 
+class Child extends Root {} 
+class Leaf extends Child {}
+
+//indirectly inherits from Root by virtue of inheritance {} 
+var obj_leaf = new Leaf();
+obj_leaf.test() 
+
+
+
+//*******************************************Class inheritance and method overriding***********************************
+
+
+/* If parent and child has methods with the same name then when the method is called from the object, the method
+of the child is prioritized. That means the child method is being called  */
+class printerClass{
+   doPrint(){
+      console.log('printing from parent class');
+   }
+}
+
+class stringPrinter extends printerClass{
+   doPrint(){
+      console.log('printing from child class');
+   }
+}
+
+var obj_stringPrinter = new stringPrinter();
+obj_stringPrinter.doPrint();
+
+
+
+//***********************************************************The super key word******************************************
+
+/* If method overriding occurs the child method is being priritized, but can also call the method from the
+parent class by calling it using the super key. */
+
+
+class printerClass1{
+   doPrint(){
+      console.log('printing from parent class');
+   }
+}
+
+class stringPrinter1 extends printerClass1{
+   doPrint(){
+      super.doPrint();
+      console.log('printing from child class');
+   }
+}
+
+var obj_stringPrinter1 = new stringPrinter1();
+obj_stringPrinter1.doPrint();
+
+
+
+//***************************************************************Function overloading***********************************
+
+function foo(arg1) {
+    console.log(arg1);
+}
+ 
+/* The above function will be overwriteen by the function below, and the below function
+   will be executed for any number and any type of arguments */
+   
+function foo(arg1, arg2) {
+    console.log(arg1, arg2);
+}
+ 
+/* In the output we will see 'Towhid' and undefined, because the last function is called and it has two argument but
+only passed one that's why the second argument is undefined */
+foo("Towhid")
+
+
+
+
+
+
+
+
+
+</script>
